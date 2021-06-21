@@ -9,6 +9,8 @@ It will eventually allow user to manage a simple database containing names, surn
 * ➕ adding new records 
 * ☠️ deleting existing ones 
 * 📨 sorting the records by surname or PESEL 
-* 🔎 querying the records by surname or PESEL 
+* 🔎 querying the records by surname or PESEL
+
+...but it doesn't do any of those things (yet!). 💤
 
 As of now I don't plan on adding automated tests, but this may change in the future.

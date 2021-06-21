@@ -9,8 +9,15 @@
     Usuwanie po numerze indeksu
 */
 #include <iostream>
+#include "database.hpp"
 
 int main() {
-    std::cout << "Hello world!\n";
+    Record test("John", "Doe", "Streetname 123", 112233, 97001122334, male);
+    std::cout<< test.getFirstName() << '\n';
+    std::cout<< test.getLastName() << '\n';
+    std::cout<< test.getAddress() << '\n';
+    std::cout<< test.getIndexNr() << '\n';
+    std::cout<< test.getPeselNr() << '\n';
+    std::cout<< test.getSexString() << '\n';
     return 0;
 }

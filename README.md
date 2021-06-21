@@ -8,5 +8,5 @@ It's main focus is learning the basics of OOP as well as managing and working wi
 It will eventually allow user to manage a simple database containing names, surnames etc. of students by:
 * adding new records
 * deleting existing ones
-* sorting the records by surneame or PESEL
+* sorting the records by surname or PESEL
 * querying the records by surname or PESEL

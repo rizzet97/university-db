@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pawel/university-db/database.cpp
+database.hpp
+/home/pawel/university-db/database.hpp
+
+/home/pawel/university-db/database.hpp
+iostream
+-
+string
+-
+array
+-
+

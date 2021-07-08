@@ -1,18 +1,18 @@
 #include "storage.hpp"
 
-bool comparePeselNrInc(const Record & lhs, const Record & rhs) {
+bool comparePeselNrInc(const Record& lhs, const Record& rhs) {
     return lhs.getPeselNr() < rhs.getPeselNr();
 }
 
-bool comparePeselNrDec(const Record & lhs, const Record & rhs) {
+bool comparePeselNrDec(const Record& lhs, const Record& rhs) {
     return lhs.getPeselNr() > rhs.getPeselNr();
 }
 
-bool compareLastNameInc(const Record & lhs, const Record & rhs) {
+bool compareLastNameInc(const Record& lhs, const Record& rhs) {
     return lhs.getLastName() < rhs.getLastName();
 }
 
-bool compareLastNameDec(const Record & lhs, const Record & rhs) {
+bool compareLastNameDec(const Record& lhs, const Record& rhs) {
     return lhs.getLastName() > rhs.getLastName();
 }
 
@@ -84,5 +84,29 @@ void sortByLastName(std::vector<Record>& database, sortType sortDir) {
         std::sort(database.begin(), database.end(), compareLastNameDec);
     } else {
         std::sort(database.begin(), database.end(), compareLastNameInc);
+    }
+}
+
+void findByLastName(std::vector<Record>& database, std::string lastName) {
+    auto it = find_if(database.begin(), database.end(), [&lastName](const Record& obj) {return obj.getLastName() == lastName;});
+    if (it != database.end())
+    {
+        // converting iterator to index - not needed (can access element by iterator)
+        auto index = std::distance(database.begin(), it);
+        printRecord(database[index]);
+    } else {
+        std::cout << "No student with last name '" << lastName << "' found in the database!\n"; 
+    }
+}
+
+void findByPeselNr(std::vector<Record>& database, unsigned long int peselNr) {
+    auto it = find_if(database.begin(), database.end(), [&peselNr](const Record& obj) {return obj.getPeselNr() == peselNr;});
+    if (it != database.end())
+    {
+        // converting iterator to index - not needed (can access element by iterator)
+        auto index = std::distance(database.begin(), it);
+        printRecord(database[index]);
+    } else {
+        std::cout << "No student with PESEL nr '" << peselNr << "' found in the database!\n"; 
     }
 }

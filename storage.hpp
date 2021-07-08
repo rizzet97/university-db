@@ -3,22 +3,20 @@
 #include <iostream>
 #include <vector>
 #include "record.hpp"
-#include "storage.hpp"
+#include "printing.hpp"
 
 enum sortType {ascending, descending};
 
-bool comparePeselNrInc(const Record & lhs, const Record & rhs);
-bool comparePeselNrDec(const Record & lhs, const Record & rhs);
-bool compareLastNameInc(const Record & lhs, const Record & rhs);
-bool compareLastNameDec(const Record & lhs, const Record & rhs);
+bool comparePeselNrInc(const Record&, const Record&);
+bool comparePeselNrDec(const Record&, const Record&);
+bool compareLastNameInc(const Record&, const Record&);
+bool compareLastNameDec(const Record&, const Record&);
 
-void addRecordToBase(std::vector<Record>& database);
+void addRecordToBase(std::vector<Record>&);
+//void deleteRecordByIndex(std::vector<Record>& database, unsigned int index);
 
-//ITERATOR TO RECORD getRecordByIndex(unsigned int indexNr);
+void sortByPeselNr(std::vector<Record>&, sortType);
+void sortByLastName(std::vector<Record>&, sortType);
 
-//ITERATOR TO RECORD getRecordByPesel(unsigned long int peselNr);
-
-//void deleteByIndex(std::vector<Record>& database, unsigned int index);
-
-void sortByPeselNr(std::vector<Record>& database, sortType sortDir);
-void sortByLastName(std::vector<Record>& database, sortType sortDir);
+void findByLastName(std::vector<Record>&, std::string);
+void findByPeselNr(std::vector<Record>&, unsigned long int);

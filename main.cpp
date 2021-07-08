@@ -5,9 +5,6 @@
 #include "record.hpp"
 #include "storage.hpp"
 
-void addRecordToBase();
-void printByIndex(unsigned int);
-
 std::vector<Record> studentBase;
 
 int main() {
@@ -19,15 +16,6 @@ int main() {
     studentBase.push_back(test2);
     studentBase.push_back(test3);
     studentBase.push_back(test4); 
-    std::cout << "UNSORTED:\n";
-    printAllRecords(studentBase);
-    std::cout << "-----------------------------\n";
-    std::cout << "ASCENDING BY NAME:\n";
-    sortByLastName(studentBase,ascending);
-    printAllRecords(studentBase);
-    std::cout << "-----------------------------\n";
-    std::cout << "DESCENDING BY NAME:\n";
-    sortByLastName(studentBase,descending);
-    printAllRecords(studentBase);
+    findByPeselNr(studentBase,12458844347);
     return 0;
 }

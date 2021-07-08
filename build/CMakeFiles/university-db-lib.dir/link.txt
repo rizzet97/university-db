@@ -1,2 +1,0 @@
-/usr/bin/ar qc libuniversity-db-lib.a  CMakeFiles/university-db-lib.dir/menu.cpp.o CMakeFiles/university-db-lib.dir/printing.cpp.o CMakeFiles/university-db-lib.dir/record.cpp.o CMakeFiles/university-db-lib.dir/storage.cpp.o
-/usr/bin/ranlib libuniversity-db-lib.a

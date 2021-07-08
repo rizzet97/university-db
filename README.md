@@ -11,8 +11,28 @@ It will eventually allow user to manage a simple database containing names, addr
 * 📨 sorting the records by last name or PESEL 
 * 🔎 querying the records by last name or PESEL
 
-...but it doesn't do any of those things (yet!). 💤
+...but it doesn't do *most* of those things (yet!). 💤
 
 Currently only the basic class which will be used for storing data has been implemented. 🚧 👷 🏗️
-
 As of now I don't plan on adding automated tests, but this may change in the future.
+
+---
+
+💚 **Implemented:** 
+* Add new student records to database
+* Print student record by index number
+* Print all student records
+
+🧡 **To-do:**
+* Main menu
+* Print student record by PESEL
+* Remove student record by PESEL
+* Remove student record by index number
+* Sort by PESEL
+* Sort by index number
+
+📂 **Files structure:** 
+* menu - handles main menu logic
+* printing - handles printing info in terminal
+* record - defines basic record class 
+* storage - handles adding and removing new records 

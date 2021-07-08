@@ -11,7 +11,7 @@ It will eventually allow user to manage a simple database containing names, addr
 * 📨 sorting the records by last name or PESEL 
 * 🔎 querying the records by last name or PESEL
 
-...but it doesn't do *most* of those things (yet!). 💤
+...but it doesn't do *some* of those things (yet!). 💤
 
 Currently only the basic class which will be used for storing data has been implemented. 🚧 👷 🏗️
 As of now I don't plan on adding automated tests, but this may change in the future.
@@ -24,10 +24,11 @@ As of now I don't plan on adding automated tests, but this may change in the fut
 * Print all student records
 * Sort by PESEL
 * Sort by last name
+* Search by PESEL
+* Search by last name
 
 🧡 **To-do:**
 * Main menu
-* Print student record by PESEL
 * Remove student record by PESEL
 * Remove student record by index number
 

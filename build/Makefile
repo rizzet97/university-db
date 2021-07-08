@@ -136,33 +136,6 @@ university-db-lib/fast:
 	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/build
 .PHONY : university-db-lib/fast
 
-database.o: database.cpp.o
-
-.PHONY : database.o
-
-# target to build an object file
-database.cpp.o:
-	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/database.cpp.o
-.PHONY : database.cpp.o
-
-database.i: database.cpp.i
-
-.PHONY : database.i
-
-# target to preprocess a source file
-database.cpp.i:
-	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/database.cpp.i
-.PHONY : database.cpp.i
-
-database.s: database.cpp.s
-
-.PHONY : database.s
-
-# target to generate assembly for a file
-database.cpp.s:
-	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/database.cpp.s
-.PHONY : database.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -190,6 +163,114 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/university-db.dir/build.make CMakeFiles/university-db.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+menu.o: menu.cpp.o
+
+.PHONY : menu.o
+
+# target to build an object file
+menu.cpp.o:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/menu.cpp.o
+.PHONY : menu.cpp.o
+
+menu.i: menu.cpp.i
+
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.cpp.i:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/menu.cpp.i
+.PHONY : menu.cpp.i
+
+menu.s: menu.cpp.s
+
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.cpp.s:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/menu.cpp.s
+.PHONY : menu.cpp.s
+
+printing.o: printing.cpp.o
+
+.PHONY : printing.o
+
+# target to build an object file
+printing.cpp.o:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/printing.cpp.o
+.PHONY : printing.cpp.o
+
+printing.i: printing.cpp.i
+
+.PHONY : printing.i
+
+# target to preprocess a source file
+printing.cpp.i:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/printing.cpp.i
+.PHONY : printing.cpp.i
+
+printing.s: printing.cpp.s
+
+.PHONY : printing.s
+
+# target to generate assembly for a file
+printing.cpp.s:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/printing.cpp.s
+.PHONY : printing.cpp.s
+
+record.o: record.cpp.o
+
+.PHONY : record.o
+
+# target to build an object file
+record.cpp.o:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/record.cpp.o
+.PHONY : record.cpp.o
+
+record.i: record.cpp.i
+
+.PHONY : record.i
+
+# target to preprocess a source file
+record.cpp.i:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/record.cpp.i
+.PHONY : record.cpp.i
+
+record.s: record.cpp.s
+
+.PHONY : record.s
+
+# target to generate assembly for a file
+record.cpp.s:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/record.cpp.s
+.PHONY : record.cpp.s
+
+storage.o: storage.cpp.o
+
+.PHONY : storage.o
+
+# target to build an object file
+storage.cpp.o:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/storage.cpp.o
+.PHONY : storage.cpp.o
+
+storage.i: storage.cpp.i
+
+.PHONY : storage.i
+
+# target to preprocess a source file
+storage.cpp.i:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/storage.cpp.i
+.PHONY : storage.cpp.i
+
+storage.s: storage.cpp.s
+
+.PHONY : storage.s
+
+# target to generate assembly for a file
+storage.cpp.s:
+	$(MAKE) -f CMakeFiles/university-db-lib.dir/build.make CMakeFiles/university-db-lib.dir/storage.cpp.s
+.PHONY : storage.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -200,12 +281,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... university-db"
 	@echo "... university-db-lib"
-	@echo "... database.o"
-	@echo "... database.i"
-	@echo "... database.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... menu.o"
+	@echo "... menu.i"
+	@echo "... menu.s"
+	@echo "... printing.o"
+	@echo "... printing.i"
+	@echo "... printing.s"
+	@echo "... record.o"
+	@echo "... record.i"
+	@echo "... record.s"
+	@echo "... storage.o"
+	@echo "... storage.i"
+	@echo "... storage.s"
 .PHONY : help
 
 

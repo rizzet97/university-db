@@ -1,14 +1,3 @@
-/*
-    Przechowywanie rekordów studentów o strukturze: Imię, nazwisko, adres, nr indeksu, PESEL, płeć
-    Dodawanie nowych studentów
-    Wyświetlanie całej bazy danych
-    Wyszukiwanie po nazwisku
-    Wyszukiwanie po numerze PESEL
-    Sortowanie po numerze PESEL
-    Sortowanie po nazwisku
-    Usuwanie po numerze indeksu
-*/
-
 #pragma once
 #include <iostream>
 #include <string>
@@ -34,6 +23,11 @@ class Record {
             , peselNr_(peselNr)
             , sex_(sex)
         {}
+
+        Record()
+            : Record("", "", "", 111111, 99999999999, notStated)
+        {}
+
         std::string getFirstName() const {return firstName_;}
         std::string getLastName() const {return lastName_;}
         std::string getAddress() const {return address_;}
@@ -47,7 +41,7 @@ class Record {
         void setLastName(const std::string& lastName) {lastName_ = lastName;}
         void setAddress(const std::string& address) {address_ = address;}
         void setIndexNr(unsigned int indexNr) {indexNr_ = indexNr;}
-        void setPeselNr(unsigned long int peselNr) {peselNr = peselNr;}
+        void setPeselNr(unsigned long int peselNr) {peselNr_ = peselNr;}
         void setSex(sexType sex) {sex_ = sex;}
 
     private:

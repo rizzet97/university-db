@@ -6,15 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/pawel/university-db/database.cpp
-database.hpp
-/home/pawel/university-db/database.hpp
-
-/home/pawel/university-db/database.hpp
+/home/pawel/university-db/record.hpp
 iostream
 -
 string
 -
 array
 -
+
+/home/pawel/university-db/storage.cpp
+storage.hpp
+/home/pawel/university-db/storage.hpp
+
+/home/pawel/university-db/storage.hpp
+iostream
+-
+vector
+-
+record.hpp
+/home/pawel/university-db/record.hpp
+storage.hpp
+/home/pawel/university-db/storage.hpp
 

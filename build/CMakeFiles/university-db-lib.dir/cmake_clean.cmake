@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/university-db-lib.dir/database.cpp.o"
+  "CMakeFiles/university-db-lib.dir/menu.cpp.o"
+  "CMakeFiles/university-db-lib.dir/printing.cpp.o"
+  "CMakeFiles/university-db-lib.dir/record.cpp.o"
+  "CMakeFiles/university-db-lib.dir/storage.cpp.o"
   "libuniversity-db-lib.a"
   "libuniversity-db-lib.pdb"
 )

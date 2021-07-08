@@ -57,30 +57,75 @@ include CMakeFiles/university-db-lib.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/university-db-lib.dir/flags.make
 
-CMakeFiles/university-db-lib.dir/database.cpp.o: CMakeFiles/university-db-lib.dir/flags.make
-CMakeFiles/university-db-lib.dir/database.cpp.o: ../database.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pawel/university-db/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/university-db-lib.dir/database.cpp.o"
-	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/university-db-lib.dir/database.cpp.o -c /home/pawel/university-db/database.cpp
+CMakeFiles/university-db-lib.dir/menu.cpp.o: CMakeFiles/university-db-lib.dir/flags.make
+CMakeFiles/university-db-lib.dir/menu.cpp.o: ../menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pawel/university-db/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/university-db-lib.dir/menu.cpp.o"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/university-db-lib.dir/menu.cpp.o -c /home/pawel/university-db/menu.cpp
 
-CMakeFiles/university-db-lib.dir/database.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/university-db-lib.dir/database.cpp.i"
-	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pawel/university-db/database.cpp > CMakeFiles/university-db-lib.dir/database.cpp.i
+CMakeFiles/university-db-lib.dir/menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/university-db-lib.dir/menu.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pawel/university-db/menu.cpp > CMakeFiles/university-db-lib.dir/menu.cpp.i
 
-CMakeFiles/university-db-lib.dir/database.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/university-db-lib.dir/database.cpp.s"
-	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pawel/university-db/database.cpp -o CMakeFiles/university-db-lib.dir/database.cpp.s
+CMakeFiles/university-db-lib.dir/menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/university-db-lib.dir/menu.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pawel/university-db/menu.cpp -o CMakeFiles/university-db-lib.dir/menu.cpp.s
+
+CMakeFiles/university-db-lib.dir/printing.cpp.o: CMakeFiles/university-db-lib.dir/flags.make
+CMakeFiles/university-db-lib.dir/printing.cpp.o: ../printing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pawel/university-db/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/university-db-lib.dir/printing.cpp.o"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/university-db-lib.dir/printing.cpp.o -c /home/pawel/university-db/printing.cpp
+
+CMakeFiles/university-db-lib.dir/printing.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/university-db-lib.dir/printing.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pawel/university-db/printing.cpp > CMakeFiles/university-db-lib.dir/printing.cpp.i
+
+CMakeFiles/university-db-lib.dir/printing.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/university-db-lib.dir/printing.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pawel/university-db/printing.cpp -o CMakeFiles/university-db-lib.dir/printing.cpp.s
+
+CMakeFiles/university-db-lib.dir/record.cpp.o: CMakeFiles/university-db-lib.dir/flags.make
+CMakeFiles/university-db-lib.dir/record.cpp.o: ../record.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pawel/university-db/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/university-db-lib.dir/record.cpp.o"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/university-db-lib.dir/record.cpp.o -c /home/pawel/university-db/record.cpp
+
+CMakeFiles/university-db-lib.dir/record.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/university-db-lib.dir/record.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pawel/university-db/record.cpp > CMakeFiles/university-db-lib.dir/record.cpp.i
+
+CMakeFiles/university-db-lib.dir/record.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/university-db-lib.dir/record.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pawel/university-db/record.cpp -o CMakeFiles/university-db-lib.dir/record.cpp.s
+
+CMakeFiles/university-db-lib.dir/storage.cpp.o: CMakeFiles/university-db-lib.dir/flags.make
+CMakeFiles/university-db-lib.dir/storage.cpp.o: ../storage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pawel/university-db/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/university-db-lib.dir/storage.cpp.o"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/university-db-lib.dir/storage.cpp.o -c /home/pawel/university-db/storage.cpp
+
+CMakeFiles/university-db-lib.dir/storage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/university-db-lib.dir/storage.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pawel/university-db/storage.cpp > CMakeFiles/university-db-lib.dir/storage.cpp.i
+
+CMakeFiles/university-db-lib.dir/storage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/university-db-lib.dir/storage.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pawel/university-db/storage.cpp -o CMakeFiles/university-db-lib.dir/storage.cpp.s
 
 # Object files for target university-db-lib
 university__db__lib_OBJECTS = \
-"CMakeFiles/university-db-lib.dir/database.cpp.o"
+"CMakeFiles/university-db-lib.dir/menu.cpp.o" \
+"CMakeFiles/university-db-lib.dir/printing.cpp.o" \
+"CMakeFiles/university-db-lib.dir/record.cpp.o" \
+"CMakeFiles/university-db-lib.dir/storage.cpp.o"
 
 # External object files for target university-db-lib
 university__db__lib_EXTERNAL_OBJECTS =
 
-libuniversity-db-lib.a: CMakeFiles/university-db-lib.dir/database.cpp.o
+libuniversity-db-lib.a: CMakeFiles/university-db-lib.dir/menu.cpp.o
+libuniversity-db-lib.a: CMakeFiles/university-db-lib.dir/printing.cpp.o
+libuniversity-db-lib.a: CMakeFiles/university-db-lib.dir/record.cpp.o
+libuniversity-db-lib.a: CMakeFiles/university-db-lib.dir/storage.cpp.o
 libuniversity-db-lib.a: CMakeFiles/university-db-lib.dir/build.make
 libuniversity-db-lib.a: CMakeFiles/university-db-lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pawel/university-db/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libuniversity-db-lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pawel/university-db/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libuniversity-db-lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/university-db-lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/university-db-lib.dir/link.txt --verbose=$(VERBOSE)
 

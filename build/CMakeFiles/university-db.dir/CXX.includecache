@@ -6,7 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/pawel/university-db/database.hpp
+/home/pawel/university-db/main.cpp
+iostream
+-
+vector
+-
+menu.hpp
+/home/pawel/university-db/menu.hpp
+printing.hpp
+/home/pawel/university-db/printing.hpp
+record.hpp
+/home/pawel/university-db/record.hpp
+storage.hpp
+/home/pawel/university-db/storage.hpp
+
+/home/pawel/university-db/menu.hpp
+iostream
+-
+
+/home/pawel/university-db/printing.hpp
+iostream
+-
+vector
+-
+record.hpp
+/home/pawel/university-db/record.hpp
+
+/home/pawel/university-db/record.hpp
 iostream
 -
 string
@@ -14,9 +40,13 @@ string
 array
 -
 
-/home/pawel/university-db/main.cpp
+/home/pawel/university-db/storage.hpp
 iostream
 -
-database.hpp
-/home/pawel/university-db/database.hpp
+vector
+-
+record.hpp
+/home/pawel/university-db/record.hpp
+storage.hpp
+/home/pawel/university-db/storage.hpp
 

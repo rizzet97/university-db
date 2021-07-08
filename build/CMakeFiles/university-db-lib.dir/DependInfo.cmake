@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pawel/university-db/database.cpp" "/home/pawel/university-db/build/CMakeFiles/university-db-lib.dir/database.cpp.o"
+  "/home/pawel/university-db/menu.cpp" "/home/pawel/university-db/build/CMakeFiles/university-db-lib.dir/menu.cpp.o"
+  "/home/pawel/university-db/printing.cpp" "/home/pawel/university-db/build/CMakeFiles/university-db-lib.dir/printing.cpp.o"
+  "/home/pawel/university-db/record.cpp" "/home/pawel/university-db/build/CMakeFiles/university-db-lib.dir/record.cpp.o"
+  "/home/pawel/university-db/storage.cpp" "/home/pawel/university-db/build/CMakeFiles/university-db-lib.dir/storage.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

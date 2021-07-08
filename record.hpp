@@ -28,6 +28,10 @@ class Record {
             : Record("", "", "", 111111, 99999999999, notStated)
         {}
 
+        bool operator< (const Record &sortedObj) const {
+            return peselNr_ < sortedObj.getPeselNr();
+        }
+
         std::string getFirstName() const {return firstName_;}
         std::string getLastName() const {return lastName_;}
         std::string getAddress() const {return address_;}

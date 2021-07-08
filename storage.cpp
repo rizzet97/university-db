@@ -1,5 +1,21 @@
 #include "storage.hpp"
 
+bool comparePeselNrInc(const Record & lhs, const Record & rhs) {
+    return lhs.getPeselNr() < rhs.getPeselNr();
+}
+
+bool comparePeselNrDec(const Record & lhs, const Record & rhs) {
+    return lhs.getPeselNr() > rhs.getPeselNr();
+}
+
+bool compareLastNameInc(const Record & lhs, const Record & rhs) {
+    return lhs.getLastName() < rhs.getLastName();
+}
+
+bool compareLastNameDec(const Record & lhs, const Record & rhs) {
+    return lhs.getLastName() > rhs.getLastName();
+}
+
 void addRecordToBase(std::vector<Record>& database) {
     Record newRecord;
     std::string str;
@@ -20,7 +36,7 @@ void addRecordToBase(std::vector<Record>& database) {
     std::cout << "Enter index number:\n";
     std::cin >> index;
     newRecord.setIndexNr(index);
-    std::cout << "Enter PESEL number:\n"; //4 some reason didn't work
+    std::cout << "Enter PESEL number:\n";
     std::cin >> pesel;
     newRecord.setPeselNr(pesel);
     std::cout << "Choose sex (1-male, 2-female, 3-intersex, 4-prefer not to state):\n"; 
@@ -54,3 +70,19 @@ void addRecordToBase(std::vector<Record>& database) {
     //if no matches found,s say so
     //else print X records deleted
 //}
+
+void sortByPeselNr(std::vector<Record>& database, sortType sortDir) {
+    if (sortDir == descending) {
+        std::sort(database.begin(), database.end(), comparePeselNrDec);
+    } else {
+        std::sort(database.begin(), database.end(), comparePeselNrInc);
+    }
+}
+
+void sortByLastName(std::vector<Record>& database, sortType sortDir) {
+    if (sortDir == descending) {
+        std::sort(database.begin(), database.end(), compareLastNameDec);
+    } else {
+        std::sort(database.begin(), database.end(), compareLastNameInc);
+    }
+}

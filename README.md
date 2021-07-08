@@ -13,7 +13,6 @@ It will eventually allow user to manage a simple database containing names, addr
 
 ...but it doesn't do *some* of those things (yet!). 💤
 
-Currently only the basic class which will be used for storing data has been implemented. 🚧 👷 🏗️
 As of now I don't plan on adding automated tests, but this may change in the future.
 
 ---

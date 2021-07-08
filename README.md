@@ -22,14 +22,14 @@ As of now I don't plan on adding automated tests, but this may change in the fut
 * Add new student records to database
 * Print student record by index number
 * Print all student records
+* Sort by PESEL
+* Sort by last name
 
 🧡 **To-do:**
 * Main menu
 * Print student record by PESEL
 * Remove student record by PESEL
 * Remove student record by index number
-* Sort by PESEL
-* Sort by index number
 
 📂 **Files structure:** 
 * menu - handles main menu logic

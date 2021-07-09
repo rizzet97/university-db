@@ -28,8 +28,18 @@ As of now I don't plan on adding automated tests, but this may change in the fut
 * Remove student record by index number
 
 🧡 **To-do:**
-* All done 😅
-
+* Store university employee data in the same vector as students
+* Employee data should contain:
+  * First name
+  * Last name
+  * PESEL
+  * Sex
+  * Address
+  * Earnings
+* Generate dummy data
+* Modify earnings by PESEL 
+* Sort by earnings
+* add .github/workflows/main.yml
 
 📂 **Files structure:** 
 * menu - handles main menu logic

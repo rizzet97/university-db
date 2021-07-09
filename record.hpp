@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <vector>
 
 enum sexType {
     male,

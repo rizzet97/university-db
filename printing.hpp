@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "menu.hpp"
 #include "record.hpp"
 
 void printAllRecords(std::vector<Record>& database);

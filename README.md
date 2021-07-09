@@ -15,6 +15,18 @@ As of now I don't plan on adding automated tests, but this may change in the fut
 
 ---
 
+**Following project uses CMake.**
+In order to build it open terminal, go to project directory and type:
+```
+mkdir build
+cd build
+cmake ..
+make
+```
+Program will be created as: `university-db`
+
+---
+
 💚 **Implemented:** 
 * Add new student records to database
 * Print student record by index number
@@ -40,6 +52,8 @@ As of now I don't plan on adding automated tests, but this may change in the fut
 * Modify earnings by PESEL 
 * Sort by earnings
 * add .github/workflows/main.yml
+
+---
 
 📂 **Files structure:** 
 * menu - handles main menu logic

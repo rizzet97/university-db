@@ -59,17 +59,19 @@ void addRecordToBase(std::vector<Record>& database) {
     }
     newRecord.setSex(sex);
     database.push_back(newRecord);
+    std::cout << "New student '" << newRecord.getFirstName() << " " << newRecord.getLastName() << "' added!\n\n";
 }
 
-//void deleteByIndex(std::vector<Record>& database, unsigned int index) {
-    //for range loop
-        //if indexNumber equal to the one passed
-            //get element index in vector
-            //delete element from vector
-            //increment match counter
-    //if no matches found,s say so
-    //else print X records deleted
-//}
+
+void deleteByPeselNr(std::vector<Record>& database, unsigned long int peselNr) {
+    auto it = std::find_if(database.begin(), database.end(), [peselNr](const Record& obj) {return obj.getPeselNr() == peselNr;});
+    database.erase(it);
+}
+
+void deleteByLastName(std::vector<Record>& database, std::string lastName) {
+    auto it = std::find_if(database.begin(), database.end(), [lastName](const Record& obj) {return obj.getLastName() == lastName;});
+    database.erase(it);
+}
 
 void sortByPeselNr(std::vector<Record>& database, sortType sortDir) {
     if (sortDir == descending) {
@@ -95,18 +97,40 @@ void findByLastName(std::vector<Record>& database, std::string lastName) {
         auto index = std::distance(database.begin(), it);
         printRecord(database[index]);
     } else {
-        std::cout << "No student with last name '" << lastName << "' found in the database!\n"; 
+        std::cout << "No student with last name '" << lastName << "' found in the database!\n\n"; 
     }
 }
 
 void findByPeselNr(std::vector<Record>& database, unsigned long int peselNr) {
     auto it = find_if(database.begin(), database.end(), [&peselNr](const Record& obj) {return obj.getPeselNr() == peselNr;});
-    if (it != database.end())
-    {
+    if (it != database.end()) {
         // converting iterator to index - not needed (can access element by iterator)
         auto index = std::distance(database.begin(), it);
         printRecord(database[index]);
     } else {
-        std::cout << "No student with PESEL nr '" << peselNr << "' found in the database!\n"; 
+        std::cout << "No student with PESEL nr '" << peselNr << "' found in the database!\n\n"; 
     }
+}
+
+sortType getUserDirection() {
+    sortType dir = none;
+    char key;
+    std::cout << "Choose direction of sorting.\n";
+    std::cout << "[a]scending / [d]escending: ";
+    std::cin >> key;
+    while (dir == none) {
+        if(key == 'd') {
+            dir = descending;
+            std::cout << "Sorting records descending:\n";
+        } else if(key == 'a') {
+            dir = ascending;
+            std::cout << "Sorting records ascending:\n";
+        } else {
+            std::cout << "Wrong key pressed!\n";
+            std::cout << "Choose direction of sorting.\n";
+            std::cout << "[a]scending / [d]escending: ";
+            std::cin >> key;
+        }
+    }
+    return dir;
 }

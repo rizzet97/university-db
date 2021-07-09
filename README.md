@@ -5,7 +5,7 @@ Hi! 👋
 This is a work-in-progress project for the online C++ course by [Coders-School](coders.school).
 It's main focus is learning the basics of OOP as well as managing and working with simple projects.
 
-It allows user to manage a simple database containing names, addresses etc. of students by:
+It allows user to manage a simple database (containing names, addresses etc.) of students by:
 * ➕ adding new records 
 * ☠️ deleting existing ones 
 * 📨 sorting the records by last name or PESEL 
@@ -24,6 +24,14 @@ cmake ..
 make
 ```
 Program will be created as: `university-db`
+
+---
+
+📂 **Files structure:** 
+* menu - handles main menu logic
+* printing - handles printing info in terminal
+* record - defines basic record class 
+* storage - handles adding and removing new records 
 
 ---
 
@@ -52,11 +60,3 @@ Program will be created as: `university-db`
 * Modify earnings by PESEL 
 * Sort by earnings
 * add .github/workflows/main.yml
-
----
-
-📂 **Files structure:** 
-* menu - handles main menu logic
-* printing - handles printing info in terminal
-* record - defines basic record class 
-* storage - handles adding and removing new records 

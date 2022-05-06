@@ -1,0 +1,4 @@
+/home/pawel/workspace/university-db/build/CMakeFiles/rebuild_cache.dir
+/home/pawel/workspace/university-db/build/CMakeFiles/edit_cache.dir
+/home/pawel/workspace/university-db/build/CMakeFiles/university-db.dir
+/home/pawel/workspace/university-db/build/CMakeFiles/university-db-lib.dir

@@ -57,3 +57,9 @@ class Record {
         unsigned long int peselNr_;
         sexType sex_;
 };
+
+// implement polymorphism:
+
+// class Record {}; - pure virtual class
+// class Student : public Record {}; - derived class
+// class Employee : public Record {}; - derived class

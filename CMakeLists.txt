@@ -5,7 +5,7 @@ set(CMAKE_CXX_COMPILER g++)
 set(CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED ON)
 
-set(SRC menu.cpp printing.cpp record.cpp storage.cpp)
+set(SRC generators.cpp menu.cpp printing.cpp record.cpp storage.cpp)
 set(NAME university-db)
 set(FLAGS -Wall -Wextra -Werror -pedantic -Wconversion -O3)
 

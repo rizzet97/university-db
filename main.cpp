@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include "menu.hpp"
-#include "printing.hpp"
 #include "record.hpp"
-#include "storage.hpp"
+#include "database.hpp"
 
 // WORKPLAN:
 // 1) turn Record into abstract class (interface for records)
@@ -17,23 +16,23 @@
 // Modyfikacja zarobków wyszukując osobę po numerze PESEL (problematyczne)
 // Sortowanie po zarobkach (problematyczne)
 
-
-std::vector<Record> studentBase;
-bool mainLoopKill = false;
-
 int main() {
-    Record test("Pawel", "Nita", "ul. Dluga 86", 112233, 97001122334, male);
-    Record test2("Marek", "Nowak", "ul. Krotka 117", 657321, 68082822334, male);
-    Record test3("Janina", "Kowalska", "ul. Warszawska 40", 336040, 77010232999, female);
-    Record test4("Maria", "Sklodowska-Curie", "ul. Uniwersytecka 91", 990087, 12458810347, female);
-    studentBase.push_back(test);
-    studentBase.push_back(test2);
-    studentBase.push_back(test3);
-    studentBase.push_back(test4); 
+    Database database;
+    Menu menu;
     
-    while(!mainLoopKill) {
-        printMainMenu();
-        mainMenuAction();
+    database.addRecordToBase("Pawel", "Nita", "ul. Dluga 86", 112233, 97001122334, SexType::Male);
+    database.addRecordToBase("Marek", "Nowak", "ul. Krotka 117", 657321, 68082822334, SexType::Male);
+    database.addRecordToBase("Celina", "Nowak", "ul. Krotka 117", 657322, 68111622379, SexType::Female);
+    database.addRecordToBase("Janina", "Kowalska", "ul. Warszawska 40", 336040, 77010232999, SexType::Female);
+    database.addRecordToBase("Maria", "Sklodowska-Curie", "ul. Uniwersytecka 91", 990087, 12458810347, SexType::Female);
+    database.addRecordToBase("Jan", "Niezbedny", "ul. Kosciuszki 19", 203787, 95030821210, SexType::Other);
+
+    // database.printAllRecords();
+    menu.run();
+
+    while(menu.isRunning()) {
+        menu.mainLoop(database);
     }
+    
     return 0;
 }

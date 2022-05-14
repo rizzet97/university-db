@@ -4,19 +4,16 @@
 #include <array>
 #include <vector>
 
-enum sexType {
-    male,
-    female,
-    intersex,
-    notStated
+enum class SexType {
+    Male,
+    Female,
+    Other,
+    NotStated
 };
-
-typedef std::array<unsigned short int, 6> indexType;
-typedef std::array<unsigned short int, 11> peselType;
 
 class Record {
     public:
-         Record(const std::string firstName, const std::string lastName, const std::string address, unsigned int indexNr, unsigned long int peselNr, sexType sex)
+         Record(const std::string firstName, const std::string lastName, const std::string address, unsigned int indexNr, unsigned long int peselNr, SexType sex)
             : firstName_(firstName)
             , lastName_(lastName)
             , address_(address)
@@ -26,9 +23,10 @@ class Record {
         {}
 
         Record()
-            : Record("", "", "", 111111, 99999999999, notStated)
+            : Record("", "", "", 111111, 99999999999, SexType::NotStated)
         {}
 
+        //possibly  deprecated
         bool operator< (const Record &sortedObj) const {
             return peselNr_ < sortedObj.getPeselNr();
         }
@@ -38,7 +36,7 @@ class Record {
         std::string getAddress() const {return address_;}
         unsigned int getIndexNr() const {return indexNr_;}
         unsigned long int getPeselNr() const {return peselNr_;}
-        sexType getSex() const {return sex_;}
+        SexType getSex() const {return sex_;}
 
         std::string getSexString() const;
 
@@ -47,7 +45,9 @@ class Record {
         void setAddress(const std::string& address) {address_ = address;}
         void setIndexNr(unsigned int indexNr) {indexNr_ = indexNr;}
         void setPeselNr(unsigned long int peselNr) {peselNr_ = peselNr;}
-        void setSex(sexType sex) {sex_ = sex;}
+        void setSex(SexType sex) {sex_ = sex;}
+
+        void printRecord();
 
     private:
         std::string firstName_;
@@ -55,11 +55,27 @@ class Record {
         std::string address_;
         unsigned int indexNr_;
         unsigned long int peselNr_;
-        sexType sex_;
+        SexType sex_;
+};
+
+// class Student : Record {
+
+// };
+
+// class Employee : Record {
+
+// };
+
+class NullRecord : public Record {
+public:
+    NullRecord() : Record("", "", "", 0, 0, SexType::NotStated) {}
+    // void printRecord() override {
+    //     std::cout << "-record doesn't exist-\n";
+    // }
 };
 
 // implement polymorphism:
 
-// class Record {}; - pure virtual class
+// class Record {}; - virtual class
 // class Student : public Record {}; - derived class
 // class Employee : public Record {}; - derived class

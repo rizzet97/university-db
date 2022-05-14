@@ -1,0 +1,27 @@
+#pragma once
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <memory>
+#include "record.hpp"
+
+enum class SortType {Ascending, Descending, None};
+
+SortType getUserDirection();
+
+std::string stringToLower(const std::string&);
+class Database {
+public:
+    std::vector<std::shared_ptr<Record>>& getDataBase() {return database_;} 
+    void printAllRecords() const;
+    void printRecord(std::shared_ptr<Record>);
+    void addRecordToBase(std::string first, std::string last, std::string address, unsigned int index, unsigned long int pesel, SexType sex);
+    std::vector<std::shared_ptr<Record>> searchByLastName(std::string);
+    std::shared_ptr<Record> searchByPesel(unsigned long int);
+    void sortByPeselNr(SortType);
+    void sortByLastName(SortType);
+    void deleteByIndexNr(unsigned int index);
+
+private:
+    std::vector<std::shared_ptr<Record>> database_;
+};

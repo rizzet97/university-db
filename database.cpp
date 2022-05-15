@@ -45,6 +45,7 @@ std::vector<std::shared_ptr<Record>> Database::searchByLastName(std::string name
         matches.emplace_back(*it++);
         it = std::find_if(it, database_.cend(), findLastName);
     }
+    if(matches.size() < 1) {matches.emplace_back(std::make_shared<NullRecord>(NullRecord()));}
     return matches;
 }
 std::shared_ptr<Record> Database::searchByPesel(unsigned long int pesel) {
@@ -56,7 +57,7 @@ std::shared_ptr<Record> Database::searchByPesel(unsigned long int pesel) {
         return *it;
     } else {
         // return std::make_shared<NullRecord>(NullRecord());
-        return std::make_shared<Student>(Student(" ", " ", " ", 0, SexType::Other, 0));
+        return std::make_shared<NullRecord>(NullRecord());
     }
 }
 void Database::sortByPeselNr(SortType sortDir) {
@@ -109,5 +110,10 @@ void Database::deleteByIndexNr(unsigned int index) {
         return ptr->getIndexNr() == index;
     };
     auto it = std::find_if(database_.cbegin(), database_.cend(), findIndex);
-    database_.erase(it);
+    if(it == database_.end()) {
+        std::cout << "Person with given index number doesn't exist in the database!\n\n";
+    } else {
+        database_.erase(it);
+        std::cout << "Record successfully removed!\n\n";
+    }
 }

@@ -17,7 +17,7 @@ public:
     };
     bool isRunning() const {return running_;}
     void run() {running_ = true;}
-    std::shared_ptr<Record> getUserRecordData();
+    std::shared_ptr<Student> getUserRecordData();
     char getMenuInput();   
     template<class T>
     T getUserInput(std::string userLabel) {
@@ -54,4 +54,3 @@ private:
 bool running_;
 char input_;
 };
-

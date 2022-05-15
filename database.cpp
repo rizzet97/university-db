@@ -5,11 +5,15 @@ std::string stringToLower(const std::string& str) {
     std::transform(lower.begin(), lower.end(), lower.begin(), [](unsigned char c){ return std::tolower(c); });
     return lower;
 }
-void Database::addRecordToBase(std::string first, std::string last, std::string address, unsigned int index, unsigned long int pesel, SexType sex) {
+void Database::addRecordToBase(Occupation occupation, std::string first, std::string last, std::string address, unsigned long int pesel, SexType sex, unsigned int classSpecific) {
     //check if PESEL exists
     //if yes: 
         // std::cout << "Person with given PESEL number already exists in the database!\n";
-    database_.push_back(std::make_shared<Record>(Record(first, last, address, index, pesel, sex)));
+    if(occupation == Occupation::Student) {
+        database_.push_back(std::make_shared<Student>(Student(first, last, address, pesel, sex, classSpecific)));
+    } else {
+        database_.push_back(std::make_shared<Employee>(Employee(first, last, address, pesel, sex, classSpecific)));
+    }
 }
 void Database::printAllRecords() const {
     for(const auto& record : database_) {
@@ -39,7 +43,8 @@ std::shared_ptr<Record> Database::searchByPesel(unsigned long int pesel) {
     if(it != database_.end()) {
         return *it;
     } else {
-        return std::make_shared<Record>(NullRecord());
+        // return std::make_shared<NullRecord>(NullRecord());
+        return std::make_shared<Student>(Student(" ", " ", " ", 0, SexType::Other, 0));
     }
 }
 void Database::sortByPeselNr(SortType sortDir) {

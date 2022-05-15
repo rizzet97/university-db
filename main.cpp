@@ -5,9 +5,10 @@
 #include "database.hpp"
 
 // WORKPLAN:
-// 1) turn Record into abstract class (interface for records)
-// 2) implement derived classes Employee nad Student
-// 3) change studentBase from vector of objects to vector of shared pointers
+// 1) turn Record into base class (interface for records) [done]
+// 2) implement derived classes Employee nad Student [done]
+// 3) change studentBase from vector of objects to vector of shared pointers [done]
+// 4) add missing functions [   ]
 
 // WYMAGANIA
 // Przechowywanie rekordów pracowników uczelni o strukturze: imię, nazwisko, PESEL, płeć, adres, zarobki
@@ -20,12 +21,13 @@ int main() {
     Database database;
     Menu menu;
     
-    database.addRecordToBase("Pawel", "Nita", "ul. Dluga 86", 112233, 97001122334, SexType::Male);
-    database.addRecordToBase("Marek", "Nowak", "ul. Krotka 117", 657321, 68082822334, SexType::Male);
-    database.addRecordToBase("Celina", "Nowak", "ul. Krotka 117", 657322, 68111622379, SexType::Female);
-    database.addRecordToBase("Janina", "Kowalska", "ul. Warszawska 40", 336040, 77010232999, SexType::Female);
-    database.addRecordToBase("Maria", "Sklodowska-Curie", "ul. Uniwersytecka 91", 990087, 12458810347, SexType::Female);
-    database.addRecordToBase("Jan", "Niezbedny", "ul. Kosciuszki 19", 203787, 95030821210, SexType::Other);
+    database.addRecordToBase(Occupation::Student, "Pawel", "Nita", "ul. Dluga 86", 97001122334, SexType::Male, 112233);
+    database.addRecordToBase(Occupation::Student, "Marek", "Nowak", "ul. Krotka 117", 68082822334, SexType::Male, 657321);
+    database.addRecordToBase(Occupation::Student, "Celina", "Nowak", "ul. Krotka 117", 68111622379, SexType::Female, 657322);
+    database.addRecordToBase(Occupation::Student, "Janina", "Kowalska", "ul. Warszawska 40", 77010232999, SexType::Female, 336040);
+    database.addRecordToBase(Occupation::Employee, "Maria", "Sklodowska-Curie", "ul. Uniwersytecka 91", 12458810347, SexType::Female, 16250);
+    database.addRecordToBase(Occupation::Student, "Jan", "Niezbedny", "ul. Kosciuszki 19", 95030821210, SexType::Other, 203787);
+    database.addRecordToBase(Occupation::Employee, "Stefan", "Banach", "Lwowska 3", 92083012345, SexType::Male, 12500);
 
     // database.printAllRecords();
     menu.run();

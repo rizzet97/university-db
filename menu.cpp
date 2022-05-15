@@ -26,8 +26,8 @@
     // modify index by pesel $$$
 // close
 
-std::shared_ptr<Record> Menu::getUserRecordData() {
-    auto isEmployee = getUserInput<char>("occupation (0 - student, 1- employee)");
+std::shared_ptr<Student> Menu::getUserRecordData() {
+    auto isEmployee = getUserInput<char>("occupation (0- student, 1- employee)");
     std::cin.ignore();
     auto firstName = getUserInputStr("first name");
     auto lastName = getUserInputStr("last name");
@@ -50,10 +50,13 @@ std::shared_ptr<Record> Menu::getUserRecordData() {
             break;
     }
     if(isEmployee == '0') {
-        auto indexNr = getUserInput<unsigned int>("index number");
-        return std::make_shared<Record>(Record(firstName, lastName, address, indexNr, peselNr, sex));
+        auto classSpecific = getUserInput<unsigned int>("index number");
+        // return std::make_shared<Student>(Student(Occupation::Student, firstName, lastName, address, peselNr, sex, indexNr));
+        return std::make_shared<Student>(Student(firstName, lastName, address, peselNr, sex, classSpecific));
     } else {
-        return std::make_shared<Record>(NullRecord());
+        auto classSpecific = getUserInput<unsigned int>("salary");
+        // return std::make_shared<Employee>(Employee(Occupation::Employee, firstName, lastName, address, peselNr, sex, salary));
+        return std::make_shared<Student>(Student(firstName, lastName, address, peselNr, sex, classSpecific));
     }
 }
 
@@ -145,13 +148,26 @@ void Menu::mainLoop(Database& database) {
                 std::cout << '\n';
                 if(input_ == '1') {
                     auto ptr = getUserRecordData(); 
-                    database.addRecordToBase(ptr->getFirstName(), //simple copying constructor would work here
-                                             ptr->getLastName(),
-                                             ptr->getAddress(),
-                                             ptr->getIndexNr(),
-                                             ptr->getPeselNr(),
-                                             ptr->getSex()
-                    );}
+                    if(ptr->getOccupation() == Occupation::Student) {
+                        database.addRecordToBase(ptr->getOccupation(),
+                                              ptr->getFirstName(), //simple copying constructor would work here
+                                              ptr->getLastName(),
+                                              ptr->getAddress(),
+                                              ptr->getPeselNr(),
+                                              ptr->getSex(),
+                                              ptr->getIndexNr()
+                        );
+                    } else {
+                        database.addRecordToBase(ptr->getOccupation(),
+                                              ptr->getFirstName(), //simple copying constructor would work here
+                                              ptr->getLastName(),
+                                              ptr->getAddress(),
+                                              ptr->getPeselNr(),
+                                              ptr->getSex(),
+                                              ptr->getSalary()
+                        );
+                    }
+                    ;}
                 if(input_ == '2') {std::cout << "-to be implemented-\n";}
                 if(input_ == '3') {std::cout << "-to be implemented-\n";}
                 if(input_ == '4') {std::cout << "-to be implemented-\n";}

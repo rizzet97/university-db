@@ -104,7 +104,7 @@ void Menu::printMenu(MenuType type) {
             std::cout << "How would you like to sort records? Please select action:\n";
             std::cout << "[1] Sort records by PESEL\n";
             std::cout << "[2] Sort records by last name\n";
-            std::cout << "[3] Sort records by salary (!)\n";
+            std::cout << "[3] Sort records by salary\n";
             std::cout << "[4] Back\n";
             break;
         case MenuType::Remove:
@@ -206,7 +206,10 @@ void Menu::mainLoop(Database& database) {
                     auto direction = getUserDirection();
                     database.sortByLastName(direction);
                 }
-                if(input_ == '3') {std::cout << "-to be implemented-\n";}
+                if(input_ == '3') {//salary
+                    auto direction = getUserDirection();
+                    database.sortBySalary(direction);
+                }
             } while (input_ != '4');
             break;
         case '5':

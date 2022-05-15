@@ -40,7 +40,7 @@ public:
                     direction = SortType::Ascending;
                     break;
                 case('d'):
-                    direction = SortType::Ascending;
+                    direction = SortType::Descending;
                     break;
                 default:
                     direction = SortType::Ascending;

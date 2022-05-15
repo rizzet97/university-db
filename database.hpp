@@ -20,6 +20,7 @@ public:
     std::shared_ptr<Record> searchByPesel(unsigned long int);
     void sortByPeselNr(SortType);
     void sortByLastName(SortType);
+    void sortBySalary(SortType);
     void deleteByIndexNr(unsigned int index);
 
 private:

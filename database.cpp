@@ -77,6 +77,21 @@ void Database::sortByLastName(SortType sortDir) {
                   });
     }
 }
+void Database::sortBySalary(SortType sortDir) {
+    if (sortDir == SortType::Descending) {
+        std::sort(database_.begin(),
+                  database_.end(),
+                  [](std::shared_ptr<Record> lhs, std::shared_ptr<Record> rhs){
+                      return lhs->getSalary() > rhs->getSalary();
+                  });
+    } else {
+        std::sort(database_.begin(),
+                  database_.end(),
+                  [](std::shared_ptr<Record> lhs, std::shared_ptr<Record> rhs){
+                      return lhs->getSalary() < rhs->getSalary();
+                  });
+    }
+}
 void Database::deleteByIndexNr(unsigned int index) {
     auto findIndex = [&index](const std::shared_ptr<Record>& ptr) {
         return ptr->getIndexNr() == index;

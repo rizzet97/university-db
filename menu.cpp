@@ -51,11 +51,11 @@ std::shared_ptr<Student> Menu::getUserRecordData() {
     }
     if(isEmployee == '0') {
         auto classSpecific = getUserInput<unsigned int>("index number");
-        // return std::make_shared<Student>(Student(Occupation::Student, firstName, lastName, address, peselNr, sex, indexNr));
+        std::cout << '\n';
         return std::make_shared<Student>(Student(firstName, lastName, address, peselNr, sex, classSpecific));
     } else {
         auto classSpecific = getUserInput<unsigned int>("salary");
-        // return std::make_shared<Employee>(Employee(Occupation::Employee, firstName, lastName, address, peselNr, sex, salary));
+        std::cout << '\n';
         return std::make_shared<Student>(Student(firstName, lastName, address, peselNr, sex, classSpecific));
     }
 }

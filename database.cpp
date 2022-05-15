@@ -7,18 +7,30 @@ std::string stringToLower(const std::string& str) {
 }
 void Database::addRecordToBase(Occupation occupation, std::string first, std::string last, std::string address, unsigned long int pesel, SexType sex, unsigned int classSpecific) {
     //check if PESEL exists
-    //if yes: 
-        // std::cout << "Person with given PESEL number already exists in the database!\n";
-    if(occupation == Occupation::Student) {
-        database_.push_back(std::make_shared<Student>(Student(first, last, address, pesel, sex, classSpecific)));
+    if(checkIfExists(pesel)) {
+        std::cout << "Person with given PESEL number already exists in the database!\n\n";
     } else {
-        database_.push_back(std::make_shared<Employee>(Employee(first, last, address, pesel, sex, classSpecific)));
+        if(occupation == Occupation::Student) {
+            database_.push_back(std::make_shared<Student>(Student(first, last, address, pesel, sex, classSpecific)));
+        } else if(occupation == Occupation::Employee) {
+            database_.push_back(std::make_shared<Employee>(Employee(first, last, address, pesel, sex, classSpecific)));
+        } else {
+            database_.push_back(std::make_shared<NullRecord>(NullRecord()));
+        }
     }
 }
 void Database::printAllRecords() const {
     for(const auto& record : database_) {
         record->printRecord();
     }
+}
+
+bool Database::checkIfExists(unsigned long int pesel) {
+    auto findPesel = [&pesel](const std::shared_ptr<Record>& ptr){
+        return ptr->getPeselNr() == pesel; 
+    };
+    auto it = std::find_if(database_.begin(), database_.end(), findPesel);
+    return it != database_.end();
 }
 
 std::vector<std::shared_ptr<Record>> Database::searchByLastName(std::string name) {

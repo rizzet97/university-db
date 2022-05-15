@@ -55,7 +55,7 @@ void NullRecord::setSalary(unsigned int salary) {
 }
 
 void NullRecord::printRecord() {
-        std::cout << "-record doesn't exist-\n";
+        std::cout << "-record doesn't exist in database-\n\n";
 }
 
 unsigned int Employee::getIndexNr() const {

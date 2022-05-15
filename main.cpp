@@ -11,11 +11,11 @@
 // 4) add missing functions [   ]
 
 // WYMAGANIA
-// Przechowywanie rekordów pracowników uczelni o strukturze: imię, nazwisko, PESEL, płeć, adres, zarobki
-// Wszystkie osoby niezależnie czy będą to pracownicy, czy studenci mają być trzymani w jednym kontenerze
-// Wypełnianie bazy danych sztucznymi danymi (generowanie danych)
-// Modyfikacja zarobków wyszukując osobę po numerze PESEL (problematyczne)
-// Sortowanie po zarobkach (problematyczne)
+// [x] Przechowywanie rekordów pracowników uczelni o strukturze: imię, nazwisko, PESEL, płeć, adres, zarobki
+// [x] Wszystkie osoby niezależnie czy będą to pracownicy, czy studenci mają być trzymani w jednym kontenerze
+// [ ] Wypełnianie bazy danych sztucznymi danymi (generowanie danych)
+// [ ] Modyfikacja zarobków wyszukując osobę po numerze PESEL (problematyczne)
+// [x] Sortowanie po zarobkach (problematyczne)
 
 int main() {
     Database database;
@@ -28,8 +28,10 @@ int main() {
     database.addRecordToBase(Occupation::Employee, "Maria", "Sklodowska-Curie", "ul. Uniwersytecka 91", 12458810347, SexType::Female, 16250);
     database.addRecordToBase(Occupation::Student, "Jan", "Niezbedny", "ul. Kosciuszki 19", 95030821210, SexType::Other, 203787);
     database.addRecordToBase(Occupation::Employee, "Stefan", "Banach", "Lwowska 3", 92083012345, SexType::Male, 12500);
-
-    // database.printAllRecords();
+    // database.addRecordToBase(Occupation::Null, "a", "b", "c", 90, SexType::Female, 125);
+    // database.addRecordToBase(Occupation::Null, "a", "b", "c", 92, SexType::Other, 1225);
+    // database.addRecordToBase(Occupation::Null, "a", "b", "c", 96, SexType::Male, 90848);
+    
     menu.run();
 
     while(menu.isRunning()) {

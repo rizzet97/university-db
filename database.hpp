@@ -15,6 +15,7 @@ public:
     std::vector<std::shared_ptr<Record>>& getDataBase() {return database_;} 
     void printAllRecords() const;
     void printRecord(std::shared_ptr<Record>);
+    bool checkIfExists(unsigned long int);
     void addRecordToBase(Occupation occupation, std::string first, std::string last, std::string address, unsigned long int pesel, SexType sex, unsigned int classSpecific);
     std::vector<std::shared_ptr<Record>> searchByLastName(std::string);
     std::shared_ptr<Record> searchByPesel(unsigned long int);

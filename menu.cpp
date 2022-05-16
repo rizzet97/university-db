@@ -26,7 +26,7 @@
     // modify index by pesel $$$
 // close
 
-std::shared_ptr<Student> Menu::getUserRecordData() {
+std::shared_ptr<Record> Menu::getUserRecordData() {
     auto isEmployee = getUserInput<char>("occupation (0- student, 1- employee)");
     std::cin.ignore();
     auto firstName = getUserInputStr("first name");
@@ -56,7 +56,7 @@ std::shared_ptr<Student> Menu::getUserRecordData() {
     } else {
         auto classSpecific = getUserInput<unsigned int>("salary");
         std::cout << '\n';
-        return std::make_shared<Student>(Student(firstName, lastName, address, peselNr, sex, classSpecific));
+        return std::make_shared<Employee>(Employee(firstName, lastName, address, peselNr, sex, classSpecific));
     }
 }
 
@@ -75,7 +75,7 @@ void Menu::printMenu(MenuType type) {
             std::cout << "[3] Search record in database\n";
             std::cout << "[4] Sort database\n";
             std::cout << "[5] Remove from database\n";
-            std::cout << "[6] Other\n";
+            std::cout << "[6] Modify existing record\n";
             std::cout << "[7] Exit\n";
             break;
         case MenuType::Print:
@@ -113,9 +113,9 @@ void Menu::printMenu(MenuType type) {
             std::cout << "[2] Delete record by PESEL (extra)\n";
             std::cout << "[3] Back\n";
             break;
-        case MenuType::Other:
+        case MenuType::Modify:
             std::cout << "Please select action:\n";
-            std::cout << "[1] Modify salary by PESEL (!)\n";
+            std::cout << "[1] Modify salary by PESEL\n";
             std::cout << "[2] Modify index number by PESEL (extra)\n";
             std::cout << "[3] Back\n";
             
@@ -226,10 +226,21 @@ void Menu::mainLoop(Database& database) {
             break;
         case '6':
             do {
-                printMenu(MenuType::Other);
+                printMenu(MenuType::Modify);
                 input_ = getMenuInput();
                 std::cout << '\n';
-                if(input_ == '1') {std::cout << "-to be implemented-\n";}
+                if(input_ == '1') {
+                    auto pesel = getUserInput<unsigned long int>("pesel");
+                    auto ptr = database.searchByPesel(pesel);
+                    if(ptr->getOccupation() == Occupation::Employee) {
+                        auto salary = getUserInput<unsigned int>("salary");
+                        database.modifySalary(pesel, salary);
+                    } else if(ptr->getOccupation() == Occupation::Student) {
+                        std::cout << "This person is not an employee!\n\n";
+                    } else {
+                        std::cout << "Person with given PESEL number doesn't exist in the database!\n\n";
+                    }
+                }
                 if(input_ == '2') {std::cout << "-to be implemented-\n";}
             } while (input_ != '3');
             break;

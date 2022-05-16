@@ -16,14 +16,14 @@ public:
     void printAllRecords() const;
     void printRecord(std::shared_ptr<Record>);
     bool checkIfExists(unsigned long int);
-    void addRecordToBase(Occupation occupation, std::string first, std::string last, std::string address, unsigned long int pesel, SexType sex, unsigned int classSpecific);
+    void addRecordToBase(Occupation occupation, const std::string& first, const std::string& last, const std::string& address, unsigned long int pesel, SexType sex, unsigned int classSpecific);
     std::vector<std::shared_ptr<Record>> searchByLastName(std::string);
     std::shared_ptr<Record> searchByPesel(unsigned long int);
     void sortByPeselNr(SortType);
     void sortByLastName(SortType);
     void sortBySalary(SortType);
     void deleteByIndexNr(unsigned int index);
-
+    void modifySalary(unsigned long int, unsigned int);
 private:
     std::vector<std::shared_ptr<Record>> database_;
 };

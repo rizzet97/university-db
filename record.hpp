@@ -99,7 +99,7 @@ public:
              unsigned long int peselNr,
              SexType sex,
              unsigned int salary
-            ) : Record(Occupation::Student, firstName, lastName, address, peselNr, sex)
+            ) : Record(Occupation::Employee, firstName, lastName, address, peselNr, sex)
               , salary_(salary)
             {}
 

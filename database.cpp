@@ -5,7 +5,7 @@ std::string stringToLower(const std::string& str) {
     std::transform(lower.begin(), lower.end(), lower.begin(), [](unsigned char c){ return std::tolower(c); });
     return lower;
 }
-void Database::addRecordToBase(Occupation occupation, std::string first, std::string last, std::string address, unsigned long int pesel, SexType sex, unsigned int classSpecific) {
+void Database::addRecordToBase(Occupation occupation, const std::string& first, const std::string& last, const std::string& address, unsigned long int pesel, SexType sex, unsigned int classSpecific) {
     //check if PESEL exists
     if(checkIfExists(pesel)) {
         std::cout << "Person with given PESEL number already exists in the database!\n\n";
@@ -115,5 +115,14 @@ void Database::deleteByIndexNr(unsigned int index) {
     } else {
         database_.erase(it);
         std::cout << "Record successfully removed!\n\n";
+    }
+}
+
+void Database::modifySalary(unsigned long int peselNr, unsigned int salary) {
+    auto record = searchByPesel(peselNr);
+    if(record->getOccupation() == Occupation::Employee) {
+        record->setSalary(salary);
+    } else {
+        std::cout << "This person is not an employee!\n\n";
     }
 }

@@ -31,7 +31,7 @@ int main() {
     // database.addRecordToBase(Occupation::Null, "a", "b", "c", 90, SexType::Female, 125);
     // database.addRecordToBase(Occupation::Null, "a", "b", "c", 92, SexType::Other, 1225);
     // database.addRecordToBase(Occupation::Null, "a", "b", "c", 96, SexType::Male, 90848);
-    
+
     menu.run();
 
     while(menu.isRunning()) {

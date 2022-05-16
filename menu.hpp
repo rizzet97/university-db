@@ -13,16 +13,16 @@ public:
         Search,
         Sort,
         Remove,
-        Other
+        Modify
     };
     bool isRunning() const {return running_;}
     void run() {running_ = true;}
-    std::shared_ptr<Student> getUserRecordData();
+    std::shared_ptr<Record> getUserRecordData();
     char getMenuInput();   
     template<class T>
     T getUserInput(std::string userLabel) {
         T input;
-        std::cout << "Set " << userLabel << ": ";
+        std::cout << "Input " << userLabel << ": ";
         std::cin  >> input;
         return input;
     }

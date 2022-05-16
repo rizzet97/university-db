@@ -50,6 +50,7 @@ public:
     }
     void printMenu(MenuType);
     void mainLoop(Database&);
+    void modifyRecord(Occupation);
 private:
 bool running_;
 char input_;

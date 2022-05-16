@@ -25,6 +25,22 @@ void Database::printAllRecords() const {
     }
 }
 
+void Database::printAllRecords(Occupation occupation) const {
+    if(occupation == Occupation::Employee) {
+        for(const auto& record : database_) {
+            if(record->getOccupation() == Occupation::Employee) {
+                record->printRecord();
+            }
+        }
+    } else if(occupation == Occupation::Student) {
+        for(const auto& record : database_) {
+            if(record->getOccupation() == Occupation::Student) {
+                record->printRecord();
+            }
+        }
+    }
+}
+
 bool Database::checkIfExists(unsigned long int pesel) {
     auto findPesel = [&pesel](const std::shared_ptr<Record>& ptr){
         return ptr->getPeselNr() == pesel; 
@@ -115,14 +131,5 @@ void Database::deleteByIndexNr(unsigned int index) {
     } else {
         database_.erase(it);
         std::cout << "Record successfully removed!\n\n";
-    }
-}
-
-void Database::modifySalary(unsigned long int peselNr, unsigned int salary) {
-    auto record = searchByPesel(peselNr);
-    if(record->getOccupation() == Occupation::Employee) {
-        record->setSalary(salary);
-    } else {
-        std::cout << "This person is not an employee!\n\n";
     }
 }

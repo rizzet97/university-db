@@ -14,6 +14,7 @@ class Database {
 public:
     std::vector<std::shared_ptr<Record>>& getDataBase() {return database_;} 
     void printAllRecords() const;
+    void printAllRecords(Occupation) const;
     void printRecord(std::shared_ptr<Record>);
     bool checkIfExists(unsigned long int);
     void addRecordToBase(Occupation occupation, const std::string& first, const std::string& last, const std::string& address, unsigned long int pesel, SexType sex, unsigned int classSpecific);
@@ -23,7 +24,6 @@ public:
     void sortByLastName(SortType);
     void sortBySalary(SortType);
     void deleteByIndexNr(unsigned int index);
-    void modifySalary(unsigned long int, unsigned int);
 private:
     std::vector<std::shared_ptr<Record>> database_;
 };

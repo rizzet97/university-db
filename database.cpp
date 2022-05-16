@@ -133,3 +133,16 @@ void Database::deleteByIndexNr(unsigned int index) {
         std::cout << "Record successfully removed!\n\n";
     }
 }
+
+void Database::deleteByPesel(unsigned long int pesel) {
+    auto findPesel = [&pesel](const std::shared_ptr<Record>& ptr) {
+        return ptr->getPeselNr() == pesel;
+    };
+    auto it = std::find_if(database_.cbegin(), database_.cend(), findPesel);
+    if(it == database_.end()) {
+        std::cout << "Person with given PESEL doesn't exist in the database!\n\n";
+    } else {
+        database_.erase(it);
+        std::cout << "Record successfully removed!\n\n";
+    }
+}

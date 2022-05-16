@@ -110,7 +110,7 @@ void Menu::printMenu(MenuType type) {
         case MenuType::Remove:
             std::cout << "What would you like to remove? Please select action:\n";
             std::cout << "[1] Delete record by index\n";
-            std::cout << "[2] Delete record by PESEL (extra)\n";
+            std::cout << "[2] Delete record by PESEL\n";
             std::cout << "[3] Back\n";
             break;
         case MenuType::Modify:
@@ -221,7 +221,10 @@ void Menu::mainLoop(Database& database) {
                     auto indexNr = getUserInput<unsigned int>("index number");
                     database.deleteByIndexNr(indexNr);
                 }
-                if(input_ == '2') {std::cout << "-to be implemented-\n";}
+                if(input_ == '2') {
+                    auto pesel = getUserInput<unsigned long int>("PESEL");
+                    database.deleteByPesel(pesel);
+                }
             } while (input_ != '3');
             break;
         case '6':
@@ -230,7 +233,7 @@ void Menu::mainLoop(Database& database) {
                 input_ = getMenuInput();
                 std::cout << '\n';
                 if(input_ == '1') {
-                    auto pesel = getUserInput<unsigned long int>("pesel");
+                    auto pesel = getUserInput<unsigned long int>("PESEL");
                     auto ptr = database.searchByPesel(pesel);
                     if(ptr->getOccupation() == Occupation::Employee) {
                         auto salary = getUserInput<unsigned int>("salary");

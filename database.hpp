@@ -24,6 +24,7 @@ public:
     void sortByLastName(SortType);
     void sortBySalary(SortType);
     void deleteByIndexNr(unsigned int index);
+    void deleteByPesel(unsigned long int);
 private:
     std::vector<std::shared_ptr<Record>> database_;
 };

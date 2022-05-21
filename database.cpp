@@ -149,3 +149,7 @@ void Database::deleteByPesel(unsigned long int pesel) {
         std::cout << "Record successfully removed!\n\n";
     }
 }
+
+void Database::deleteAll() {
+    database_.clear();
+}

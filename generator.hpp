@@ -383,10 +383,10 @@ public:
     }
     
     std::shared_ptr<Record> generateNewRecord();
+    std::shared_ptr<Record> generateNewRecord(Occupation);
+    
 
 private:
     unsigned int currentYear_ = 2022;
     std::multimap<std::string, unsigned int> generatedIDs_;
 };
-
-std::shared_ptr<Record> generateNewRecord();

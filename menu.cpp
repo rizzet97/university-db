@@ -89,9 +89,9 @@ void Menu::printMenu(MenuType type) {
             std::cout << "What would you like to add/generate? Please select action:\n";
             std::cout << "[1] Manually add new record\n";
             std::cout << "[2] Generate random record\n";
-            std::cout << "[3] Generate N random records (extra)\n";
-            std::cout << "[4] Generate random student (extra)\n";
-            std::cout << "[5] Generate random employee (extra)\n";
+            std::cout << "[3] Generate N random records\n";
+            std::cout << "[4] Generate random student\n";
+            std::cout << "[5] Generate random employee\n";
             std::cout << "[6] Back\n";
             break;
         case MenuType::Search:
@@ -111,7 +111,8 @@ void Menu::printMenu(MenuType type) {
             std::cout << "What would you like to remove? Please select action:\n";
             std::cout << "[1] Delete record by index\n";
             std::cout << "[2] Delete record by PESEL\n";
-            std::cout << "[3] Back\n";
+            std::cout << "[3] Delete all records\n";
+            std::cout << "[4] Back\n";
             break;
         case MenuType::Modify:
             std::cout << "Please select action:\n";
@@ -172,9 +173,21 @@ void Menu::mainLoop(Database& database) {
                     auto record = generator_.generateNewRecord();
                     database.addRecordToBase(record);
                 }
-                if(input_ == '3') {std::cout << "-to be implemented-\n";}
-                if(input_ == '4') {std::cout << "-to be implemented-\n";}
-                if(input_ == '5') {std::cout << "-to be implemented-\n";}
+                if(input_ == '3') {
+                    auto count = getUserInput<unsigned int>("no. of records to generate");
+                    for(auto it = 0u; it < count; ++it) {
+                        auto record = generator_.generateNewRecord();
+                        database.addRecordToBase(record);
+                    }
+                }
+                if(input_ == '4') {
+                    auto record = generator_.generateNewRecord(Occupation::Student);
+                    database.addRecordToBase(record);
+                }
+                if(input_ == '5') {
+                    auto record = generator_.generateNewRecord(Occupation::Employee);
+                    database.addRecordToBase(record);
+                }
             } while (input_ != '6');
             break;
         case '3':
@@ -228,7 +241,10 @@ void Menu::mainLoop(Database& database) {
                     auto pesel = getUserInput<unsigned long int>("PESEL");
                     database.deleteByPesel(pesel);
                 }
-            } while (input_ != '3');
+                if(input_ == '3') {
+                    database.deleteAll();
+                }
+            } while (input_ != '4');
             break;
         case '6':
             do {

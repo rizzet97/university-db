@@ -204,3 +204,23 @@ std::shared_ptr<Record> Generator::generateNewRecord() {
         return std::make_shared<Employee>(Employee(firstName, lastName, address, pesel, sex, classSpecific));
     }
 }
+
+std::shared_ptr<Record> Generator::generateNewRecord(Occupation occupation) {
+    SexType sex = SexType::Other;
+    (getCoinFlipResult()) ? sex = SexType::Male : sex = SexType::Female;
+    auto pesel = generatePesel(sex, occupation);
+    if(getResultWithSetProbability(10)) {
+        (getCoinFlipResult()) ? sex = SexType::NotStated : SexType::Other;
+    }
+    std::string firstName = generateFirstName(sex);
+    std::string lastName = generateLastName(sex);
+    std::string address = generateAddress();
+    unsigned int classSpecific = 0;
+    if(occupation == Occupation::Student) {
+        classSpecific = generateNumber(100000, 999999);
+        return std::make_shared<Student>(Student(firstName, lastName, address, pesel, sex, classSpecific));
+    } else {
+        classSpecific = generateNumber(3416, 20000);
+        return std::make_shared<Employee>(Employee(firstName, lastName, address, pesel, sex, classSpecific));
+    }
+}

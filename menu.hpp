@@ -25,6 +25,7 @@ public:
         T input;
         std::cout << "Input " << userLabel << ": ";
         std::cin  >> input;
+        std::cout << '\n';
         return input;
     }
     std::string getUserInputStr(std::string userLabel) {

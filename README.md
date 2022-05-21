@@ -46,16 +46,7 @@ Program will be created as: `university-db`
 * Main menu
 * Remove student record by PESEL
 * Remove student record by index number
-
-🧡 **To-do:**
 * Store university employee data in the same vector as students
-* Employee data should contain:
-  * First name
-  * Last name
-  * PESEL
-  * Sex
-  * Address
-  * Earnings
 * Generate dummy data
 * Modify earnings by PESEL 
 * Sort by earnings

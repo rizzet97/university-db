@@ -17,6 +17,8 @@ enum class Occupation {
     Null
 };
 
+using peselType = std::array<unsigned short int, 11>;
+
 class Record {
     public:
          Record(const Occupation occupation,

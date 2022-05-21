@@ -88,7 +88,7 @@ void Menu::printMenu(MenuType type) {
         case MenuType::Add:
             std::cout << "What would you like to add/generate? Please select action:\n";
             std::cout << "[1] Manually add new record\n";
-            std::cout << "[2] Generate random record (!)\n";
+            std::cout << "[2] Generate random record\n";
             std::cout << "[3] Generate N random records (extra)\n";
             std::cout << "[4] Generate random student (extra)\n";
             std::cout << "[5] Generate random employee (extra)\n";
@@ -168,7 +168,10 @@ void Menu::mainLoop(Database& database) {
                         );
                     }
                     ;}
-                if(input_ == '2') {std::cout << "-to be implemented-\n";}
+                if(input_ == '2') {
+                    auto record = generator_.generateNewRecord();
+                    database.addRecordToBase(record);
+                }
                 if(input_ == '3') {std::cout << "-to be implemented-\n";}
                 if(input_ == '4') {std::cout << "-to be implemented-\n";}
                 if(input_ == '5') {std::cout << "-to be implemented-\n";}

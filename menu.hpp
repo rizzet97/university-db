@@ -3,6 +3,7 @@
 #include <limits>
 #include "record.hpp"
 #include "database.hpp"
+#include "generator.hpp"
 
 class Menu {
 public:
@@ -54,4 +55,5 @@ public:
 private:
 bool running_;
 char input_;
+Generator generator_;
 };

@@ -19,6 +19,9 @@ void Database::addRecordToBase(Occupation occupation, const std::string& first, 
         }
     }
 }
+void Database::addRecordToBase(std::shared_ptr<Record> record) {
+    database_.push_back(record);
+}
 void Database::printAllRecords() const {
     for(const auto& record : database_) {
         record->printRecord();

@@ -18,6 +18,7 @@ public:
     void printRecord(std::shared_ptr<Record>);
     bool checkIfExists(unsigned long int);
     void addRecordToBase(Occupation occupation, const std::string& first, const std::string& last, const std::string& address, unsigned long int pesel, SexType sex, unsigned int classSpecific);
+    void addRecordToBase(std::shared_ptr<Record>);
     std::vector<std::shared_ptr<Record>> searchByLastName(std::string);
     std::shared_ptr<Record> searchByPesel(unsigned long int);
     void sortByPeselNr(SortType);

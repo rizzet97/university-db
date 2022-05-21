@@ -11,8 +11,6 @@ It allows user to manage a simple database (containing names, addresses etc.) of
 * 📨 sorting the records by last name or PESEL 
 * 🔎 querying the records by last name or PESEL
 
-As of now I don't plan on adding automated tests, but this may change in the future.
-
 ---
 
 **Following project uses CMake.**
@@ -25,13 +23,17 @@ make
 ```
 Program will be created as: `university-db`
 
+The database will be **empty** on launch. The user has to either:
+* generate a new set of data by pressing `[2] Add/generate new record` -> `[3] Generate N random records`
+* add new records by hand by pressing `[2] Add/generate new record` -> `[1] Manually add new record`
+
 ---
 
 📂 **Files structure:** 
 * menu - handles main menu logic
-* printing - handles printing info in terminal
-* record - defines basic record class 
-* storage - handles adding and removing new records 
+* database - handles operations on records (adding, modifying etc.)
+* record - defines basic record classes 
+* generator - allows user to add new records with randomly generated data 
 
 ---
 

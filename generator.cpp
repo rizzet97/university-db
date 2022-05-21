@@ -1,25 +1,9 @@
 #include "generator.hpp"
 
-//GENERATING RECORDS:
-//rand occupation
-//rand sex
-//rand first name
-//rand last name
-//rand street name
-//rand building number
-//decide if an apartment or home
-    //optionally rand apartment number
-//rand pesel
-    //year must be between YEAR-18 - YEAR-80
-    //month must be between 01 and 12
-    //day must be between 01 and 28-29-30-31 depending on mmonth and year
-    //5 digit remainder: if exists, try going lower and if that fails try going higher
-//create record
-
 bool Generator::getCoinFlipResult() {
     return (generateNumber<unsigned short int>(0, 1) == 1);
 }
-bool Generator::getResultWithSetProbability(unsigned short int probabilityPercent) {
+bool Generator::getResultWithSetProbability(unsigned int probabilityPercent) {
     return (generateNumber<unsigned short int>(0, 99) < probabilityPercent);
 }
 
@@ -68,23 +52,23 @@ std::string Generator::generateAddress() {
 unsigned int Generator::generateID(SexType sex) {
     auto id = 10 * generateNumber<unsigned int>(0, 999);
     if(sex == SexType::Male) {
-        id += generateNumber<unsigned short int>(0, 9) * 2 % 10 + 1;
+        id += generateNumber<unsigned int>(0, 9) * 2 % 10 + 1;
     } else {
-        id += generateNumber<unsigned short int>(0, 9) * 2 % 10;
+        id += generateNumber<unsigned int>(0, 9) * 2 % 10;
     }
     return id;
 }
-unsigned short int Generator::getRandomBirthYear(bool isStudent) {
+unsigned int Generator::getRandomBirthYear(bool isStudent) {
      if(isStudent) {
-        return generateNumber<unsigned short int>(currentYear_-40, currentYear_-18);
+        return generateNumber<unsigned int>(currentYear_-40, currentYear_-18);
     } else {
-        return generateNumber<unsigned short int>(currentYear_-90, currentYear_-24);
+        return generateNumber<unsigned int>(currentYear_-90, currentYear_-24);
     }
 }
-unsigned short int Generator::getRandomBirthMonth() {
+unsigned int Generator::getRandomBirthMonth() {
     return generateNumber<unsigned short int>(1, 12);
 }
-unsigned short int Generator::getRandomBirthDay(unsigned short int birthYear, unsigned short int birthMonth) {
+unsigned int Generator::getRandomBirthDay(unsigned int birthYear, unsigned int birthMonth) {
     if(birthMonth == 2) {
         if((birthYear % 4)) {
             return generateNumber<unsigned short int>(1, 28);
@@ -98,16 +82,15 @@ unsigned short int Generator::getRandomBirthDay(unsigned short int birthYear, un
     }
 }
 
-unsigned short int Generator::calculateCheckDigit(std::string input) {
-    std::array<unsigned short int, 10> values;
+unsigned int Generator::calculateCheckDigit(std::string input) {
+    std::array<unsigned int, 10> values;
     std::transform(input.begin(), input.end(), values.begin(), [](char c){return c - '0';});
-    std::array<unsigned short int, 10> weights = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
-    unsigned short int zero = 0;
-    unsigned short int sum = std::inner_product(values.begin(), values.end(), weights.begin(), zero);
+    std::array<unsigned int, 10> weights = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
+    unsigned int sum = std::inner_product(values.begin(), values.end(), weights.begin(), 0);
     if(sum % 10 == 0) {return 0;} else {return 10 - (sum % 10);}
 }
 
-std::string Generator::getBirthdaySignature(unsigned short int year, unsigned short int month, unsigned short int day) {
+std::string Generator::getBirthdaySignature(unsigned int year, unsigned int month, unsigned int day) {
     std::string pesel;
     if(year % 100 < 10) {pesel += '0';}
     pesel += (std::to_string(year % 100));
@@ -129,7 +112,6 @@ std::string Generator::getBirthdaySignature(unsigned short int year, unsigned sh
 }
 
 bool Generator::checkIfGenerated(std::string dateSignature, unsigned int id) {
-    //check if ID exists for a given birthday
     auto range = generatedIDs_.equal_range(dateSignature);
     if(range.first != generatedIDs_.end()) {
         for(auto it = range.first; it != range.second; ++it) {
@@ -172,7 +154,6 @@ unsigned long int Generator::generatePesel(SexType sex, Occupation occupation) {
 }
 
 unsigned long int Generator::generatePesel() {
-    // unsigned long int pesel = 0;
     std::string pesel;
     bool isStudent = getResultWithSetProbability(70);
     SexType sex = SexType::Other;
@@ -199,15 +180,6 @@ unsigned long int Generator::generatePesel() {
     auto lastDigit = calculateCheckDigit(pesel);
     pesel += std::to_string(lastDigit); 
 
-    // std::cout << "Generated birthday: " << birthDay << '.' << birthMonth << '.' << birthYear << '\n';
-    // std::cout << "DATE: " << birthdaySignature << '\n';
-    // std::cout << "ID: " << peselID << '\n';
-    // std::cout << "Sex: ";
-    // if(sex == SexType::Female) {std::cout << "female\n";} else {std::cout << "male\n";}
-    // std::cout << "PESEL: " << pesel << '\n';
-    // std::cout << "Occupation: ";
-    // if(isStudent) {std::cout << "student\n";} else {std::cout << "employee\n";}
-
     return std::stoul(pesel);
 }
 
@@ -231,7 +203,4 @@ std::shared_ptr<Record> Generator::generateNewRecord() {
         classSpecific = generateNumber(3416, 20000);
         return std::make_shared<Employee>(Employee(firstName, lastName, address, pesel, sex, classSpecific));
     }
-    //remember to check if generated PESEL already exists
-    
-    // return std::make_shared<NullRecord>(NullRecord());
 }

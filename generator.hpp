@@ -219,7 +219,7 @@ public:
         "Pietrzak",
         "Wróblewska"
     };
-    std::set<std::string> streetName { //133
+    std::set<std::string> streetName {
         "1 Maja",
         "3 Maja",
         "11 Listopada",
@@ -357,19 +357,19 @@ public:
     };
 
     bool getCoinFlipResult();
-    bool getResultWithSetProbability(unsigned short int);
+    bool getResultWithSetProbability(unsigned int);
 
     std::string generateFirstName(SexType);
     std::string generateLastName(SexType);
     std::string generateAddress();
     unsigned int generateID(SexType);
 
-    unsigned short int getRandomBirthYear(bool);
-    unsigned short int getRandomBirthMonth();
-    unsigned short int getRandomBirthDay(unsigned short int, unsigned short int);
+    unsigned int getRandomBirthYear(bool);
+    unsigned int getRandomBirthMonth();
+    unsigned int getRandomBirthDay(unsigned int, unsigned int);
 
-    unsigned short int calculateCheckDigit(std::string);
-    std::string getBirthdaySignature(unsigned short int year, unsigned short int month, unsigned short int day);
+    unsigned int calculateCheckDigit(std::string);
+    std::string getBirthdaySignature(unsigned int year, unsigned int month, unsigned int day);
     bool checkIfGenerated(std::string, unsigned int);
 
     unsigned long int generatePesel(SexType, Occupation);
@@ -385,16 +385,8 @@ public:
     std::shared_ptr<Record> generateNewRecord();
 
 private:
-    unsigned short int currentYear_ = 2022;
+    unsigned int currentYear_ = 2022;
     std::multimap<std::string, unsigned int> generatedIDs_;
 };
-
-// first names (male/female)
-// last names (male/female)
-// street names
-
-// struktury:
-    // set stringow
-    // mapa size_t, string
 
 std::shared_ptr<Record> generateNewRecord();
